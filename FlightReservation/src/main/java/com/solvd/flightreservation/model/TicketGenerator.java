@@ -7,17 +7,18 @@ import com.solvd.flightreservation.interfaces.IdGenerator;
 import com.solvd.flightreservation.type.ServicesProvided;
 import com.solvd.flightreservation.user.Passenger;
 
-public class TicketGenerator implements IdGenerator {
 
+public class TicketGenerator implements IdGenerator {
+	
+	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	private static final int CODE_LENGTH = 8;
+	private static final Random random = new Random();
 	private Passenger passenger;
 	private FlightDetails flightDetails;
 	private ServicesProvided sr;
 	private String status = "Not Confirmed";
 
-	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	private static final int CODE_LENGTH = 8;
-	private static final Random random = new Random();
-
+	
 	public TicketGenerator() {
 
 	}

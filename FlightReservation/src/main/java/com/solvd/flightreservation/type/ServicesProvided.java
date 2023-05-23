@@ -1,26 +1,28 @@
 package com.solvd.flightreservation.type;
 
 import java.util.List;
-
 import com.solvd.flightreservation.constants.CommonConstants;
 import com.solvd.flightreservation.exceptions.InvalidSeatTypeException;
 import com.solvd.flightreservation.interfaces.IService;
 
-public class ServicesProvided implements IService {
+public class ServicesProvided implements IService
 
-
+{
 	public static final String ECONOMY = "economy";
 	public static final String BUSINESS = "business";
 	private String mealType;
 	private String extraLegRoom;
+	private String classType;
+
+	public ServicesProvided() {
+
+	}
 
 	public ServicesProvided(String mealType, String extraLegRoom) {
 		super();
 		this.mealType = mealType;
 		this.extraLegRoom = extraLegRoom;
 	}
-
-	private String classType;
 
 	public String getMealType() {
 		return mealType;
@@ -36,16 +38,6 @@ public class ServicesProvided implements IService {
 
 	public void setExtraLegRoom(String extraLegRoom) {
 		this.extraLegRoom = extraLegRoom;
-	}
-
-	@Override
-	public String toString() {
-		return "ServicesProvided [mealType=" + mealType +  ", extraLegRoom=" + extraLegRoom
-				+ ", classType=" + classType + "]";
-	}
-
-	public ServicesProvided() {
-
 	}
 
 	public ServicesProvided(String classType) {
@@ -70,5 +62,12 @@ public class ServicesProvided implements IService {
 					"Choose Economy or Businees ,other seatType or class type is unavailable");
 
 		}
+
+	}
+
+	@Override
+	public String toString() {
+		return "ServicesProvided [mealType=" + mealType + ", extraLegRoom=" + extraLegRoom + ", classType=" + classType
+				+ "]";
 	}
 }

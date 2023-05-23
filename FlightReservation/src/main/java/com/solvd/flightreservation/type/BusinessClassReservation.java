@@ -39,7 +39,7 @@ public class BusinessClassReservation implements FlightReservation, Calculatepri
 	}
 
 	private int generateReservationNumber() {
-		return 67890;
+		return reservationNumber;
 	}
 
 	@Override

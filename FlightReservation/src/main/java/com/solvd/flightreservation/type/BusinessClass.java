@@ -2,7 +2,6 @@ package com.solvd.flightreservation.type;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import com.solvd.flightreservation.flight.Flight;
 import com.solvd.flightreservation.utilities.MyLinkedList;
 

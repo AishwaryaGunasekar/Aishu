@@ -3,17 +3,17 @@ package com.solvd.flightreservation.type;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import com.solvd.flightreservation.flight.Flight;
 import com.solvd.flightreservation.utilities.MyLinkedList;
 
 public class EconomyClass extends Flight {
+
 	private static final Logger LOGGER = LogManager.getLogger(EconomyClass.class);
 	private double baseFare;
 
-	
 	public EconomyClass() {
 	}
+
 	public EconomyClass(String flightNumber, String airline, String source, String destination, int capacity,
 			double baseFare, int bookedSeats) {
 		super(flightNumber, airline, source, destination, capacity, bookedSeats);

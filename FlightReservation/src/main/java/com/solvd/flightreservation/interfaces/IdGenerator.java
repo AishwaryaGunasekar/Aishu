@@ -1,12 +1,9 @@
 package com.solvd.flightreservation.interfaces;
 
 public interface IdGenerator {
-  
-    
-   static  String generateReservationCode() {
-	return null;
-}
-    
-    
-  
+
+	public static String generateReservationCode() {
+		return null;
+	}
+
 }

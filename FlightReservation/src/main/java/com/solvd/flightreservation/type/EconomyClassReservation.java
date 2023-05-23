@@ -39,7 +39,7 @@ public class EconomyClassReservation implements FlightReservation, Calculatepric
 
 	private int generateReservationNumber() {
 
-		return 12345;
+		return reservationNumber;
 	}
 
 	@Override

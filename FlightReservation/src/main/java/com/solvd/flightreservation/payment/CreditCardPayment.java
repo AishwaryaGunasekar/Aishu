@@ -2,7 +2,6 @@ package com.solvd.flightreservation.payment;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import com.solvd.flightreservation.exceptions.*;
 import com.solvd.flightreservation.interfaces.Payment;
 import com.solvd.flightreservation.model.TicketGenerator;

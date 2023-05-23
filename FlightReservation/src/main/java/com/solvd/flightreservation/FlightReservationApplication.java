@@ -31,7 +31,7 @@ public class FlightReservationApplication {
 
 	public static void main(String[] args) throws IOException {
 
-		// Reflection concept is used here
+	// Reflection concept is used here
 		try {
 			// Get the FlightReservation class using reflection
 			Class<?> flightReservationClass = Class.forName("com.solvd.flightreservation.flight.FlightReservation");
@@ -217,7 +217,7 @@ public class FlightReservationApplication {
 
 				// Using existing Consumer functional interface to print out all flights
 				Consumer<IFlight> printFlightDetails = (IFlight iflight) -> {
-					System.out.println("Flight #" + iflight.getFlightNumber() + " from " + iflight.getDepartureCity()
+					LOGGER.info("Flight #" + iflight.getFlightNumber() + " from " + iflight.getDepartureCity()
 							+ " to " + iflight.getArrivalCity());
 				};
 				LOGGER.info("All available flights:");
