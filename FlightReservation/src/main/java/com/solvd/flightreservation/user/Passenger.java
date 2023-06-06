@@ -10,10 +10,13 @@ public class Passenger
 	private int age;
 	private String gender;
 	private String passportNumber;
-	private String PhoneNumber;
+	private String phoneNumber;
+	public MealType mealType;
 
-	public Passenger(String string, MealType vegetarian) {
-
+	public Passenger(String firstName, MealType mealType) {
+		super();
+		this.firstName = firstName;
+		this.mealType = mealType;
 	}
 
 	public Passenger(String firstName, String lastName, int age, String gender, String passportNumber,
@@ -24,7 +27,7 @@ public class Passenger
 		this.age = age;
 		this.gender = gender;
 		this.passportNumber = passportNumber;
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public Passenger(String firstName, int age, String passportNumber) {
@@ -74,17 +77,17 @@ public class Passenger
 	}
 
 	public String getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override
 	public String toString() {
 		return "Passenger [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", gender=" + gender
-				+ ", passportNumber=" + passportNumber + ", PhoneNumber=" + PhoneNumber + "]";
+				+ ", passportNumber=" + passportNumber + ", phoneNumber=" + phoneNumber + "]";
 	}
 
 }

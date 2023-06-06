@@ -9,14 +9,14 @@ import com.solvd.flightreservation.model.TicketGenerator;
 public class CreditCardPayment implements Payment {
 
 	private long cardNumber;
-	private String cardholderName;
+	private String cardHolderName;
 	private double amount;
 
 	private static final Logger LOGGER = LogManager.getLogger(CreditCardPayment.class);
 
-	public CreditCardPayment(long cardNumber, String cardholderName, double amount) {
+	public CreditCardPayment(long cardNumber, String cardHolderName, double amount) {
 		this.cardNumber = cardNumber;
-		this.cardholderName = cardholderName;
+		this.cardHolderName = cardHolderName;
 		this.amount = amount;
 	}
 
@@ -27,11 +27,11 @@ public class CreditCardPayment implements Payment {
 	@Override
 	public void creditCardPayment(double amount) {
 		if (amount > 0) {
-			LOGGER.info("Credit number ending with this number was used " + getCardNumber() + getCardholderName()
+			LOGGER.info("Credit number ending with this number was used " + getCardNumber() + getCardHolderName()
 					+ getAmount());
 
 		} else {
-			throw new InvalidPaymentException("Insufficient amount .");
+			throw new InvalidPaymentException("Insufficient amount and cannot be proceeded for booking .");
 		}
 
 	}
@@ -44,12 +44,12 @@ public class CreditCardPayment implements Payment {
 		this.cardNumber = cardNumber;
 	}
 
-	public String getCardholderName() {
-		return cardholderName;
+	public String getCardHolderName() {
+		return cardHolderName;
 	}
 
-	public void setCardholderName(String cardholderName) {
-		this.cardholderName = cardholderName;
+	public void setCardHolderName(String cardholderName) {
+		this.cardHolderName = cardholderName;
 	}
 
 	public double getAmount() {
@@ -66,14 +66,14 @@ public class CreditCardPayment implements Payment {
 		return cardNumberLength == 16;
 	}
 
-	public static void processPayment(long cardNumber,TicketGenerator ticket) {
-		if(isCardNumberValid( cardNumber)) {
+	public static void processPayment(long cardNumber, TicketGenerator ticket) {
+		if (isCardNumberValid(cardNumber)) {
 			ticket.setStatus("Confirmed");
 		} else {
-            // logging error
-            LOGGER.error("Invalid credit card number");
-            throw new CardException("Invalid credit card number");
-        }
+			// logging error messages
+			LOGGER.error("Invalid credit card number");
+			throw new CardException("Invalid credit card number");
+		}
 	}
 
 }

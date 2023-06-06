@@ -3,8 +3,10 @@ package com.solvd.flightreservation.type;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.solvd.flightreservation.constants.CommonConstants;
+import com.solvd.flightreservation.exceptions.ReservationNotFoundException;
 import com.solvd.flightreservation.flight.Flight;
-import com.solvd.flightreservation.utilities.MyLinkedList;
 
 public class EconomyClass extends Flight {
 
@@ -38,10 +40,29 @@ public class EconomyClass extends Flight {
 	}
 
 	@Override
-	public MyLinkedList<String> getFullMealDetails() {
-		MyLinkedList<String> mealdetails = new MyLinkedList<String>();
-		mealdetails.add(getMeal());
-		return mealdetails;
+	public boolean hasAvailableSeats(int numOfPassengers) {
+         if( numOfPassengers <  CommonConstants.MAX_FLIGHT_CAPACITY) {
+        	 return true;
+         }
+		return false;
+	}
+
+	@Override
+	public void reserveSeats(int numOfPassengers) {
+		Flight flight = new EconomyClass();
+		if (flight.checkAvailability()) {
+			LOGGER.info("Seat booked successfully!");
+
+		} else {
+			LOGGER.info("Sorry, no seats available on this flight");
+
+		}
+	}
+
+	@Override
+	public int getPrice(int numOfPassengers) {
+	
+		return (numOfPassengers * CommonConstants.FLIGHT_BASE_FARE) + CommonConstants.CONVIENCE_FEE ;
 	}
 
 }

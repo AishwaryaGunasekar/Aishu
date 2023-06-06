@@ -8,6 +8,7 @@ import com.solvd.flightreservation.flight.IFlight;
 import com.solvd.flightreservation.user.Passenger;
 
 public class Booking {
+	
     private IFlight flight;
     private CabinClass cabinClass;
     private List<Passenger> passengerList;

@@ -7,9 +7,8 @@ import com.solvd.flightreservation.interfaces.IdGenerator;
 import com.solvd.flightreservation.type.ServicesProvided;
 import com.solvd.flightreservation.user.Passenger;
 
-
 public class TicketGenerator implements IdGenerator {
-	
+
 	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	private static final int CODE_LENGTH = 8;
 	private static final Random random = new Random();
@@ -18,7 +17,6 @@ public class TicketGenerator implements IdGenerator {
 	private ServicesProvided sr;
 	private String status = "Not Confirmed";
 
-	
 	public TicketGenerator() {
 
 	}
@@ -55,7 +53,7 @@ public class TicketGenerator implements IdGenerator {
 		this.sr = sr;
 	}
 
-	public static String generateReservationCode() {
+	public String generateReservationCode() {
 		String code = generateRandomString(CODE_LENGTH);
 		while (reservationCodeExists(code)) {
 			code = generateRandomString(CODE_LENGTH);

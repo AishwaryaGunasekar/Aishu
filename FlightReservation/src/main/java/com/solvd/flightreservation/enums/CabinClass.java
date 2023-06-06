@@ -2,11 +2,7 @@ package com.solvd.flightreservation.enums;
 
 public enum CabinClass {
 
-	ECONOMY("Economy", 1.0), 
-	PREMIUM_ECONOMY("Premium Economy", 1.2), 
-	BUSINESS("Business", 2.0),
-	FIRST("First", 3.0);
-	
+	ECONOMY("Economy", 1.0), PREMIUM_ECONOMY("Premium Economy", 1.2), BUSINESS("Business", 2.0), FIRST("First", 3.0);
 
 	private final String name;
 	private final double fareMultiplier;

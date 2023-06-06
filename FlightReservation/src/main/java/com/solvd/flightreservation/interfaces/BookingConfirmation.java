@@ -4,5 +4,5 @@ import com.solvd.flightreservation.model.Booking;
 
 @FunctionalInterface
 public interface BookingConfirmation {
-    boolean confirmBooking(Booking booking);
+	boolean confirmBooking(Booking booking);
 }

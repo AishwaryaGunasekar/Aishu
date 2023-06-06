@@ -2,6 +2,7 @@ package com.solvd.flightreservation.type;
 
 
 public class Reservation {
+	
 	private int reservationId;
 	private String passengerName;
 	private String passengerContactNumber;

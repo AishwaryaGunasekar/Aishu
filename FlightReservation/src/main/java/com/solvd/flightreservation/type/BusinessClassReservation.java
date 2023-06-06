@@ -1,10 +1,13 @@
 package com.solvd.flightreservation.type;
 
+import java.util.Map;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.flightreservation.exceptions.UnavailableSeatException;
 import com.solvd.flightreservation.flight.Flight;
+import com.solvd.flightreservation.flight.FlightDetails;
 import com.solvd.flightreservation.interfaces.Calculateprice;
 import com.solvd.flightreservation.interfaces.FlightReservation;
 import com.solvd.flightreservation.interfaces.SeatType;
@@ -15,9 +18,14 @@ public class BusinessClassReservation implements FlightReservation, Calculatepri
 	private Flight flight;
 	private int reservationNumber;
 
-	public BusinessClassReservation(Flight flight) {
+	private Map<String, Flight> flights;
+
+	public BusinessClassReservation() {
+	}
+
+	public BusinessClassReservation(Flight flight, int reservationNumber) {
 		this.flight = flight;
-		this.reservationNumber = generateReservationNumber();
+		this.reservationNumber = reservationNumber;
 	}
 
 	@Override
@@ -35,12 +43,7 @@ public class BusinessClassReservation implements FlightReservation, Calculatepri
 	@Override
 	public void displayReservationDetails() {
 		LOGGER.info("Reservation Number: " + reservationNumber);
-		flight.displayFlightDetails();
-	}
-
-	private int generateReservationNumber() {
-		return reservationNumber;
-	}
+			}
 
 	@Override
 	public double calculateTicketPrice() {
@@ -50,4 +53,33 @@ public class BusinessClassReservation implements FlightReservation, Calculatepri
 	public void showSeatType() {
 		LOGGER.info("Business Class is with Window seat");
 	}
+
+	@Override
+	public double calculateTotalCost( int numOfPassengers) {
+		Flight storedFlight = flights.get(flight.getFlightNumber());
+		if (storedFlight != null) {
+			return storedFlight.getPrice(numOfPassengers);
+		}
+		return 0.0;
+	}
+
+	@Override
+	public boolean checkAvailability(FlightDetails flightd, int numOfPassengers) {
+		// TODO Auto-generated method stub
+		Flight storedFlight = flights.get(flight.getFlightNumber());
+		return storedFlight != null && storedFlight.hasAvailableSeats(numOfPassengers);
+	}
+
+	@Override
+	public boolean reserveFlight(FlightDetails flightd, int numOfPassengers) {
+		// TODO Auto-generated method stub
+		Flight storedFlight = flights.get(flight.getFlightNumber());
+		if (storedFlight != null && storedFlight.hasAvailableSeats(numOfPassengers)) {
+			storedFlight.reserveSeats(numOfPassengers);
+			return true;
+		}
+		return false;
+	}
+
+
 }

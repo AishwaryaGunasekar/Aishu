@@ -1,20 +1,17 @@
 package com.solvd.flightreservation.connections;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 public class Connection {
-	
-	private static final Logger LOGGER = LogManager.getLogger(Connection.class);
 
-
-	private int connectionId;
 	private String name;
-	
+	private int id;
 
-	public Connection(int connectionId, String name) {
+	public Connection(String name, int id) {
 		super();
-		this.connectionId = connectionId;
+		this.name = name;
+		this.id = id;
+	}
+
+	public Connection(String name) {
 		this.name = name;
 	}
 
@@ -22,12 +19,11 @@ public class Connection {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getId() {
+		return id;
 	}
-	
-	public void executeQuery(String query)
-	{
-		LOGGER.info("Executing query "+ query +" on connection "+ connectionId);
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

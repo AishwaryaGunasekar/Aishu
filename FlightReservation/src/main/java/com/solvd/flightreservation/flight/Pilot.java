@@ -1,74 +1,45 @@
+
 package com.solvd.flightreservation.flight;
 
-import java.util.HashMap;
+public class Pilot {
 
-public abstract class Pilot {
-	private HashMap<String, Flight> flights;
-	private String firstName;
-	private String lastName;
-	private long phone;
-	private String ID;
+	private String pilotName;
+	private long phoneNumber;
+	private String pilotID;
 
-	public Pilot(HashMap<String, Flight> flights, String firstName, String lastName, long phone, String iD) {
+	public Pilot(String pilotName, long phoneNumber, String pilotID) {
 		super();
-		this.flights = flights;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.phone = phone;
-		ID = iD;
+		this.pilotName = pilotName;
+		this.phoneNumber = phoneNumber;
+		this.pilotID = pilotID;
 	}
 
-	public String getID() {
-		return ID;
+	public Pilot(String pilotName) {
+		this.pilotName = pilotName;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public String getPilotName() {
+		return pilotName;
 	}
 
-	public HashMap<String, Flight> getFlights() {
-		return flights;
+	public void setPilotName(String pilotName) {
+		this.pilotName = pilotName;
 	}
 
-	public void setFlights(HashMap<String, Flight> flights) {
-		this.flights = flights;
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public String getPilotID() {
+		return pilotID;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public void setPilotID(String pilotID) {
+		this.pilotID = pilotID;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public long getPhone() {
-		return phone;
-	}
-
-	public void setPhone(long phone) {
-		this.phone = phone;
-	}
-
-	public Pilot() {
-		this.flights = new HashMap<String, Flight>();
-	}
-
-	public void addFlight(Flight flight) {
-		flights.put(flight.getFlightNumber(), flight);
-	}
-
-	public Flight getFlight(String flightNumber) {
-		return flights.get(flightNumber);
-	}
-
-	public abstract HashMap<String, String> getInfo();
 }

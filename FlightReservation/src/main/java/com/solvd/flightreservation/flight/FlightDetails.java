@@ -3,9 +3,7 @@ package com.solvd.flightreservation.flight;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.solvd.flightreservation.interfaces.IFlightSearch;
-
-public  class FlightDetails {
+public class FlightDetails {
 
 	public static final String CAPACITY = "200";
 
@@ -13,25 +11,16 @@ public  class FlightDetails {
 	private String flightName;
 	private String source;
 	private String destination;
-	private String fare;
+	private int fare;
 	private String duration;
 	private String stops;
-private int availableseat;
-	
-	
-	public int getAvailableseat() {
-	return availableseat;
-}
-
-public void setAvailableseat(int availableseat) {
-	this.availableseat = availableseat;
-}
+	private int availableSeat;
 
 	public FlightDetails() {
 
 	}
 
-	public FlightDetails(String flightNo, String flightName, String source, String destination, String fare,
+	public FlightDetails(String flightNo, String flightName, String source, String destination, int fare,
 			String duration, String stops) {
 		super();
 		this.flightNo = flightNo;
@@ -75,11 +64,11 @@ public void setAvailableseat(int availableseat) {
 		this.destination = destination;
 	}
 
-	public String getFare() {
+	public int getFare() {
 		return fare;
 	}
 
-	public void setFare(String fare) {
+	public void setFare(int fare) {
 		this.fare = fare;
 	}
 
@@ -99,30 +88,44 @@ public void setAvailableseat(int availableseat) {
 		this.stops = stops;
 	}
 
-	public static String getCapacity() {
-		return CAPACITY;
+	public int getAvailableSeat() {
+		return availableSeat;
+	}
+
+	public void setAvailableSeat(int availableSeat) {
+		this.availableSeat = availableSeat;
 	}
 
 	public final List<StringBuilder> getFlightDetails(SearchFlights flight, List<FlightDetails> fdList) {
-
 		List<StringBuilder> sbList = new ArrayList<>();
 		for (FlightDetails fd : fdList) {
 			StringBuilder sb = new StringBuilder();
-			sb.append("Flight code :" + fd.getFlightNo() + "\n");
+			sb.append("Flight code: " + fd.getFlightNo() + "\n");
 			sb.append("Flight Number: " + fd.getFlightName() + "\n");
-
 			sb.append("Source: " + flight.getSource() + "\n");
 			sb.append("Destination: " + flight.getDestination() + "\n");
 			sb.append("Capacity: " + CAPACITY + "\n");
 			sb.append("Booked Seats: " + flight.getBookedSeats() + "\n");
 			sb.append("Fare: " + fd.getFare() + "\n");
 			sbList.add(sb);
-
 		}
 		return sbList;
 	}
 
-	
+	public void reserveSeats(int numOfPassengers) {
+
+	}
+
+	public boolean hasAvailableSeats(int numOfPassengers) {
+
+		return true;
+	}
+
+	public int getPrice() {
+
+		return fare;
+	}
+
 	@Override
 	public String toString() {
 		return "FlightDetails [flightNo=" + flightNo + ", flightName=" + flightName + ", source=" + source

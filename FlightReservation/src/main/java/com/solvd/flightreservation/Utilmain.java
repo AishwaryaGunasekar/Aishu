@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,7 +16,6 @@ public class Utilmain {
 	public static void main(String[] args) throws IOException
 
 	{
-
 		File inputFile = new File("src//main//resources//input.txt");
 		File outputFile = new File("src//main//resources//output.txt");
 
@@ -35,6 +33,6 @@ public class Utilmain {
 		}
 
 		FileUtils.writeStringToFile(outputFile, outputBuilder.toString(), "UTF-8");
-		LOGGER.info("Output is written to output.txt");
+		LOGGER.info("Output is written to output.txt file ");
 	}
 }

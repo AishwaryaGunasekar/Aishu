@@ -3,9 +3,9 @@ package com.solvd.flightreservation.flight;
 import java.util.ArrayList;
 
 import com.solvd.flightreservation.type.Reservation;
-import com.solvd.flightreservation.utilities.MyLinkedList;
 
 public abstract class Flight {
+
 	private String flightNumber;
 	private String airline;
 	private String source;
@@ -112,12 +112,6 @@ public abstract class Flight {
 		return (capacity - bookedSeats) > 0;
 	}
 
-	public abstract double getFare();
-
-	public abstract void displayFlightDetails();
-
-	public abstract MyLinkedList<String> getFullMealDetails();
-
 	public void addReservation(Reservation reservation) {
 		reservations.add(reservation);
 	}
@@ -125,4 +119,16 @@ public abstract class Flight {
 	public ArrayList<Reservation> getReservations() {
 		return reservations;
 	}
+
+	public abstract double getFare();
+
+	public abstract void displayFlightDetails();
+
+	public abstract boolean hasAvailableSeats(int numOfPassengers);
+
+	public abstract void reserveSeats(int numOfPassengers);
+
+	public abstract int getPrice(int numOfPassengers);
+	
+	
 }
